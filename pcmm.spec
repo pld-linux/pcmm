@@ -8,9 +8,11 @@ Group:		X11/Applications
 Source0:	http://dl.sourceforge.net/pcmm/%{name}-%{version}.tar.gz
 # Source0-md5:	54e185bd5c250404409dd19ef0df628c
 Source1:	%{name}.png
+Source2:        %{name}-po.pl
 Patch0:		%{name}-desktop.patch
 Patch1:		%{name}-gcc3.patch
 Patch2:		%{name}-desktop_dir.patch
+Patch3:         %{name}-po_makefile.patch
 URL:		http://pcmm.sourceforge.net/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -32,9 +34,11 @@ wyszukiwanie plików, wbudowan± przegl±darkê, ftp.
 
 %prep
 %setup -q
+install %{SOURCE2} po/pl.po
 %patch0 -p1
 %patch1 -p1
 %patch2 -p1
+%patch3 -p1
 
 %build
 kde_appsdir="%{_desktopdir}"; export kde_appsdir

@@ -1,0 +1,42 @@
+diff -Nur old/po/Makefile.in new/po/Makefile.in
+--- old/po/Makefile.in	Mon Oct 21 16:52:33 2002
++++ new/po/Makefile.in	Wed Feb 11 23:41:42 2004
+@@ -237,8 +237,8 @@
+ 
+ #>- POFILES = AUTO
+ #>+ 2
+-POFILES = cs.po
+-GMOFILES = cs.gmo
++POFILES = cs.po pl.po
++GMOFILES = cs.gmo pl.gmo
+ subdir = po
+ mkinstalldirs = $(SHELL) $(top_srcdir)/admin/mkinstalldirs
+ CONFIG_HEADER = $(top_builddir)/config.h
+@@ -277,7 +277,7 @@
+ 
+ #>- DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
+ #>+ 4
+-KDE_DIST=pcmm.pot cs.po cs.gmo 
++KDE_DIST=pcmm.pot cs.po cs.gmo pl.po
+ 
+ #>- DISTFILES= $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST) $(KDE_DIST)
+ #>+ 1
+@@ -399,13 +399,17 @@
+ 	rm -f cs.gmo; $(GMSGFMT) -o cs.gmo $(srcdir)/cs.po
+ 	test ! -f cs.gmo || touch cs.gmo
+ 
++pl.gmo: pl.po
++	$(GMSGFMT) -o pl.gmo $(srcdir)/pl.po
++	test ! -f pl.gmo || touch pl.gmo
++
+ #>+ 3
+ clean-nls:
+ 	-rm -f  cs.gmo
+ 
+ #>+ 8
+ install-nls:
+-	@for base in cs ; do \
++	@for base in cs pl; do \
+ 	  echo $(INSTALL_DATA) $$base.gmo $(DESTDIR)$(kde_locale)/$$base/LC_MESSAGES/$(PACKAGE).mo ;\
+ 	  $(mkinstalldirs) $(DESTDIR)$(kde_locale)/$$base/LC_MESSAGES ; \
+ 	  test ! -f $$base.gmo || $(INSTALL_DATA) $$base.gmo $(DESTDIR)$(kde_locale)/$$base/LC_MESSAGES/$(PACKAGE).mo ;\
