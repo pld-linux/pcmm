@@ -10,6 +10,7 @@ Source0:	http://dl.sourceforge.net/pcmm/%{name}-%{version}.tar.gz
 Source1:	%{name}.png
 Patch0:		%{name}-desktop.patch
 Patch1:		%{name}-gcc3.patch
+Patch2:		%{name}-desktop_dir.patch
 URL:		http://pcmm.sourceforge.net/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -33,10 +34,11 @@ wyszukiwanie plików, wbudowan± przegl±darkê, ftp.
 %setup -q
 %patch0 -p1
 %patch1 -p1
+%patch2 -p1
 
 %build
-kde_htmldir="%{_htmldir}"; export kde_htmldir
-kde_icondir="%{_pixmapsdir}"; export kde_icondir
+kde_appsdir="%{_desktopdir}"; export kde_appsdir
+kde_icondir="%{_iconsdir}"; export kde_icondir
 %configure \
 	--disable-debug
 
@@ -44,15 +46,13 @@ kde_icondir="%{_pixmapsdir}"; export kde_icondir
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT%{_applnkdir}/Utilities
+install -d $RPM_BUILD_ROOT%{_pixmapsdir}
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT \
-	kde_appsdir=%{_applnkdir} \
-	kde_icondir=%{_pixmapsdir}
+	kde_appsdir=%{_desktopdir} \
+	kde_icondir=%{_iconsdir}
 
-mv -f $RPM_BUILD_ROOT%{_applnkdir}/{Applications,Utilities}/pcmm.desktop
-rm -rf $RPM_BUILD_ROOT%{_applnkdir}/Applications
 install %{SOURCE1} $RPM_BUILD_ROOT%{_pixmapsdir}
 
 %find_lang %{name}
@@ -64,8 +64,8 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc README ChangeLog TODO AUTHORS
 %attr(755,root,root) %{_bindir}/%{name}
-%{_applnkdir}/Utilities/pcmm.desktop
+%{_desktopdir}/pcmm.desktop
 %dir %{_datadir}/apps/pcmm
 %{_datadir}/apps/pcmm/pcmmui.rc
 %{_pixmapsdir}/*.png
-%{_pixmapsdir}/*color/*/*
+%{_iconsdir}/*color/*/*
