@@ -1,7 +1,7 @@
 diff -Nur old/pcmm/pcmm.desktop new/pcmm/pcmm.desktop
 --- old/pcmm/pcmm.desktop	2002-10-17 20:46:19.000000000 +0000
 +++ new/pcmm/pcmm.desktop	2004-02-12 11:17:05.000000000 +0000
-@@ -1,12 +1,12 @@
+@@ -1,12 +1,13 @@
  # KDE Config File  
  [Desktop Entry]
 +Name=Portos Commander
@@ -14,8 +14,10 @@ diff -Nur old/pcmm/pcmm.desktop new/pcmm/pcmm.desktop
 -DocPath=pcmm/index.html
 -Comment=
 -Comment[de]=
- Terminal=0
+-Terminal=0
 -Name=Pcmm
 -Name[de]=Pcmm
-+Categories=Utility;
++Terminal=false
++Categories=Qt;KDE;Utility;FileManager;
++Encoding=UTF-8
 +# vi: encoding=utf-8
