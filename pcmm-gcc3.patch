@@ -1,0 +1,52 @@
+diff -Nur old/pcmm/pfilepanel.h new/pcmm/pfilepanel.h
+--- old/pcmm/pfilepanel.h	2002-10-17 20:46:19.000000000 +0000
++++ new/pcmm/pfilepanel.h	2004-02-08 23:13:34.000000000 +0000
+@@ -44,7 +44,7 @@
+ 
+ class PFilePanel : public QWidget  {
+     Q_OBJECT
+-    friend PFileView;
++    friend class PFileView;
+ public:
+     /**
+      * @param is_left is the panel is left or right
+diff -Nur old/pcmm/pfileview.h new/pcmm/pfileview.h
+--- old/pcmm/pfileview.h	2002-10-17 20:46:19.000000000 +0000
++++ new/pcmm/pfileview.h	2004-02-08 23:15:13.000000000 +0000
+@@ -110,9 +110,9 @@
+ class PFileView : public PListView, public KFileView {
+     Q_OBJECT
+ 
+-    friend PFileManager;
+-    friend PFileViewCache;
+-    friend PFileViewItem;
++    friend class PFileManager;
++    friend class PFileViewCache;
++    friend class PFileViewItem;
+ public:
+     PFileView( bool is_left_panel, QWidget *parent, const char *name);
+     virtual ~PFileView();
+diff -Nur old/pcmm/pfinder/plistjob.h new/pcmm/pfinder/plistjob.h
+--- old/pcmm/pfinder/plistjob.h	2002-10-17 20:46:38.000000000 +0000
++++ new/pcmm/pfinder/plistjob.h	2004-02-08 23:20:27.000000000 +0000
+@@ -27,7 +27,7 @@
+ 
+ class RecursiveAllocator: public QObject {
+     Q_OBJECT
+-    friend PListJob;
++    friend class PListJob;
+ signals:
+     /**
+      * Signals currently listed directory
+diff -Nur old/pcmm/plistview.h new/pcmm/plistview.h
+--- old/pcmm/plistview.h	2002-10-17 20:46:19.000000000 +0000
++++ new/pcmm/plistview.h	2004-02-08 23:14:47.000000000 +0000
+@@ -29,7 +29,7 @@
+  */
+ class PListView : public KListView {
+     Q_OBJECT
+-    friend PListViewItem;
++    friend class PListViewItem;
+ public:
+     /**
+      * Constructor.

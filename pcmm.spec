@@ -9,6 +9,7 @@ Source0:	http://dl.sourceforge.net/pcmm/%{name}-%{version}.tar.gz
 # Source0-md5:	54e185bd5c250404409dd19ef0df628c
 Source1:	%{name}.png
 Patch0:		%{name}-desktop.patch
+Patch1:		%{name}-gcc3.patch
 URL:		http://pcmm.sourceforge.net/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -30,7 +31,8 @@ wyszukiwanie plików, wbudowan± przegl±darkê, ftp.
 
 %prep
 %setup -q
-%patch -p1
+%patch0 -p1
+%patch1 -p1
 
 %build
 kde_htmldir="%{_htmldir}"; export kde_htmldir
