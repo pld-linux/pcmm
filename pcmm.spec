@@ -7,6 +7,7 @@ License:	GPL
 Group:		X11/Applications
 Source0:	http://dl.sourceforge.net/pcmm/%{name}-%{version}.tar.gz
 Source1:	%{name}.png
+Patch0:		%{name}-desktop.patch
 URL:		http://pcmm.sourceforge.net/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -28,6 +29,7 @@ wyszukiwanie plików, wbudowan± przegl±darkê, ftp.
 
 %prep
 %setup -q
+%patch -p0
 
 %build
 kde_htmldir="%{_htmldir}"; export kde_htmldir
