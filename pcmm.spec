@@ -29,7 +29,7 @@ wyszukiwanie plików, wbudowan± przegl±darkê, ftp.
 
 %prep
 %setup -q
-%patch -p0
+%patch -p1
 
 %build
 kde_htmldir="%{_htmldir}"; export kde_htmldir
