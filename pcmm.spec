@@ -2,7 +2,7 @@ Summary:	Portos Commander is a QT file manager for Linux
 Summary(pl):	Portos Commander jest opartym na QT zarz±dc± plików pod Linuksa
 Name:		pcmm
 Version:	1.0
-Release:	1
+Release:	2
 License:	GPL
 Group:		X11/Applications
 Source0:	http://dl.sourceforge.net/pcmm/%{name}-%{version}.tar.gz
@@ -41,6 +41,7 @@ install %{SOURCE2} po/pl.po
 %patch3 -p1
 
 %build
+cp -f /usr/share/automake/config.sub admin/
 kde_appsdir="%{_desktopdir}"; export kde_appsdir
 %configure \
 	--disable-debug
