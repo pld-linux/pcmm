@@ -1,4 +1,4 @@
-Summary:	Portos Commander is a QT file menager for Linux
+Summary:	Portos Commander is a QT file manager for Linux
 Summary(pl):	Portos Commander jest opartym na QT zarz±dc± plików pod Linuksa
 Name:		pcmm
 Version:	1.0
@@ -6,6 +6,7 @@ Release:	1
 License:	GPL
 Group:		X11/Applications
 Source0:	http://dl.sourceforge.net/pcmm/%{name}-%{version}.tar.gz
+Source1:	%{name}.png
 URL:		http://pcmm.sourceforge.net/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -20,9 +21,10 @@ searcher, internal viewer, URL database, ftp.
 
 %description -l pl
 Portos Commander (Pcmm) jest zarz±dc± plików przeznaczonym dla KDE
-3.x. Jest wzorowany na takich menad¿erach jak Midnight Commander i
-Norton Commander. W obs³udze jest bardzo prosty i zapewnia dostêp do
-takich funkcji jak: wyszukiwanie plików, wbudowana przegl±darka, ftp.
+3.x. Jest wzorowany na takich programach jak Midnight Commander i
+Norton Commander. W obs³udze jest bardzo prosty i zapewnia dostêp
+podstawowych funkcji zarz±dcy plików, które obejmuj± m. in.:
+wyszukiwanie plików, wbudowan± przegl±darkê, ftp.
 
 %prep
 %setup -q
@@ -41,11 +43,12 @@ install -d $RPM_BUILD_ROOT%{_applnkdir}/Utilities
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT \
-	sysdir=%{_applnkdir}/Utilities \
+	kde_appsdir=%{_applnkdir} \
 	kde_icondir=%{_pixmapsdir}
 
 mv -f $RPM_BUILD_ROOT%{_applnkdir}/{Applications,Utilities}/pcmm.desktop
 rm -rf $RPM_BUILD_ROOT%{_applnkdir}/Applications
+install %{SOURCE1} $RPM_BUILD_ROOT%{_pixmapsdir}
 
 %find_lang %{name}
 
@@ -59,4 +62,5 @@ rm -rf $RPM_BUILD_ROOT
 %{_applnkdir}/Utilities/pcmm.desktop
 %dir %{_datadir}/apps/pcmm
 %{_datadir}/apps/pcmm/pcmmui.rc
-%{_pixmapsdir}/*
+%{_pixmapsdir}/*.png
+%{_pixmapsdir}/*color/*/*
