@@ -6,6 +6,7 @@ Release:	1
 License:	GPL
 Group:		X11/Applications
 Source0:	http://dl.sourceforge.net/pcmm/%{name}-%{version}.tar.gz
+# Source0-md5:	54e185bd5c250404409dd19ef0df628c
 Source1:	%{name}.png
 Patch0:		%{name}-desktop.patch
 URL:		http://pcmm.sourceforge.net/
