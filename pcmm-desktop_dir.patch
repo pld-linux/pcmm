@@ -1,0 +1,55 @@
+diff -Nur old/pcmm/Makefile.am new/pcmm/Makefile.am
+--- old/pcmm/Makefile.am	Thu Oct 17 22:46:19 2002
++++ new/pcmm/Makefile.am	Wed Feb 11 19:09:14 2004
+@@ -11,8 +11,8 @@
+ EXTRA_DIST = main.cpp pcmm.cpp pcmm.h pcmm.desktop lo32-app-pcmm.png lo16-app-pcmm.png pfilepanel.cpp pfilepanel.h pdoublefilepanel.cpp pdoublefilepanel.h pselectedfilesinfo.cpp pselectedfilesinfo.h pfileview.cpp pfileview.h pdeletedialog.cpp pdeletedialog.h pmkdirdialog.h pmkdirdialog.cpp pcmmui.rc pcopydialog.cpp pcopydialog.h pfilemanager.cpp pfilemanager.h plistview.cpp plistview.h pfileitemlist.h pfileviewcache.h pfileviewcache.cpp pdiskusagelabel.cpp pdiskusagelabel.h kdiskfreesp.cpp kdiskfreesp.h purllabel.cpp purllabel.h pdirectoryline.cpp pdirectoryline.h plinkfiledialog.h plinkfiledialog.cpp pselectfilesdialog.h pselectfilesdialog.cpp stdslots.h stdslots.cpp pcmm_general.h bookmarkbutton.h bookmarkbutton.cpp 
+ 
+ install-data-local:
+-	$(mkinstalldirs) $(kde_appsdir)/Applications/
+-	$(INSTALL_DATA) $(srcdir)/pcmm.desktop $(kde_appsdir)/Applications/pcmm.desktop
++	$(mkinstalldirs) $(kde_appsdir)/
++	$(INSTALL_DATA) $(srcdir)/pcmm.desktop $(kde_appsdir)/pcmm.desktop
+ 	$(mkinstalldirs) $(kde_icondir)/hicolor/32x32/apps/
+ 	$(INSTALL_DATA) $(srcdir)/lo32-app-pcmm.png $(kde_icondir)/hicolor/32x32/apps/pcmm.png
+ 	$(mkinstalldirs) $(kde_icondir)/locolor/16x16/apps/
+@@ -21,7 +21,7 @@
+ 	$(INSTALL_DATA) $(srcdir)/pcmmui.rc $(kde_datadir)/pcmm/pcmmui.rc
+ 
+ uninstall-local:
+-	-rm -f $(kde_appsdir)/Applications/pcmm.desktop
++	-rm -f $(kde_appsdir)/pcmm.desktop
+ 	-rm -f $(kde_icondir)/hicolor/32x32/apps/pcmm.png
+ 	-rm -f $(kde_icondir)/locolor/16x16/apps/pcmm.png
+ 	-rm -f $(kde_datadir)/pcmm/pcmmui.rc
+diff -Nur old/pcmm/Makefile.in new/pcmm/Makefile.in
+--- old/pcmm/Makefile.in	Mon Oct 21 16:52:33 2002
++++ new/pcmm/Makefile.in	Wed Feb 11 19:09:56 2004
+@@ -678,12 +678,12 @@
+ 
+ 
+ install-data-local:
+-#>- 	$(mkinstalldirs) $(kde_appsdir)/Applications/
++#>- 	$(mkinstalldirs) $(kde_appsdir)/
+ #>+ 1
+-	$(mkinstalldirs) $(DESTDIR)$(kde_appsdir)/Applications/
+-#>- 	$(INSTALL_DATA) $(srcdir)/pcmm.desktop $(kde_appsdir)/Applications/pcmm.desktop
++	$(mkinstalldirs) $(DESTDIR)$(kde_appsdir)/
++#>- 	$(INSTALL_DATA) $(srcdir)/pcmm.desktop $(kde_appsdir)/pcmm.desktop
+ #>+ 1
+-	$(INSTALL_DATA) $(srcdir)/pcmm.desktop $(DESTDIR)$(kde_appsdir)/Applications/pcmm.desktop
++	$(INSTALL_DATA) $(srcdir)/pcmm.desktop $(DESTDIR)$(kde_appsdir)/pcmm.desktop
+ #>- 	$(mkinstalldirs) $(kde_icondir)/hicolor/32x32/apps/
+ #>+ 1
+ 	$(mkinstalldirs) $(DESTDIR)$(kde_icondir)/hicolor/32x32/apps/
+@@ -704,9 +704,9 @@
+ 	$(INSTALL_DATA) $(srcdir)/pcmmui.rc $(DESTDIR)$(kde_datadir)/pcmm/pcmmui.rc
+ 
+ uninstall-local:
+-#>- 	-rm -f $(kde_appsdir)/Applications/pcmm.desktop
++#>- 	-rm -f $(kde_appsdir)/pcmm.desktop
+ #>+ 1
+-	-rm -f $(DESTDIR)$(kde_appsdir)/Applications/pcmm.desktop
++	-rm -f $(DESTDIR)$(kde_appsdir)/pcmm.desktop
+ #>- 	-rm -f $(kde_icondir)/hicolor/32x32/apps/pcmm.png
+ #>+ 1
+ 	-rm -f $(DESTDIR)$(kde_icondir)/hicolor/32x32/apps/pcmm.png
