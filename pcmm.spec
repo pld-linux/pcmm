@@ -1,5 +1,5 @@
-Summary:	Portos Commander - a QT file manager for Linux
-Summary(pl):	Portos Commander - oparty na QT zarz±dca plików pod Linuksa
+Summary:	Portos Commander - a Qt file manager for Linux
+Summary(pl):	Portos Commander - oparty na Qt zarz±dca plików pod Linuksa
 Name:		pcmm
 Version:	1.0
 Release:	4
@@ -23,14 +23,14 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Portos Commander (Pcmm) is a linux file manager for KDE 3.x. It is
 patterned after old-school managers like Midnight Commander and Norton
 Commander. It features basically all your file-management needs, file
-searcher, internal viewer, URL database, ftp.
+searcher, internal viewer, URL database, FTP.
 
 %description -l pl
 Portos Commander (Pcmm) jest zarz±dc± plików przeznaczonym dla KDE
 3.x. Jest wzorowany na takich programach jak Midnight Commander i
 Norton Commander. W obs³udze jest bardzo prosty i zapewnia dostêp
 podstawowych funkcji zarz±dcy plików, które obejmuj± m. in.:
-wyszukiwanie plików, wbudowan± przegl±darkê, ftp.
+wyszukiwanie plików, wbudowan± przegl±darkê, FTP.
 
 %prep
 %setup -q
