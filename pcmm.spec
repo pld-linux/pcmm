@@ -12,8 +12,6 @@ BuildRequires:	automake
 BuildRequires:	qt-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
-%define		_prefix		/usr/X11R6
-%define		_mandir		%{_prefix}/man
 
 %description
 Portos Commander (Pcmm) is a linux file manager for KDE 3.x. It is
