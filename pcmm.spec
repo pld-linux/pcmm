@@ -19,19 +19,18 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Portos Commander (Pcmm) is a linux file manager for KDE 3.x. It is
 patterned after old-school managers like Midnight Commander and Norton
 Commander. It features basically all your file-management needs, file
-searcher, internal viewer, URL database, ftp
+searcher, internal viewer, URL database, ftp.
 
 %description -l pl
-Portos Commander (Pcmm)jest zarz±dc± plików przeznaczonym dla KDE 3.x.
-Jest wzorowany na takich menad¿erach jak Midnight Commander i Norton
-Commander. W obs³udze jest bardzo prosty i zapewnia dostêp do takich
-funkcji jak: wyszukiwanie plików, wbudowana przegl±darka, ftp
+Portos Commander (Pcmm) jest zarz±dc± plików przeznaczonym dla KDE
+3.x. Jest wzorowany na takich menad¿erach jak Midnight Commander i
+Norton Commander. W obs³udze jest bardzo prosty i zapewnia dostêp do
+takich funkcji jak: wyszukiwanie plików, wbudowana przegl±darka, ftp.
 
 %prep
 %setup -q
 
 %build
-rm -rf missing
 kde_htmldir="%{_htmldir}"; export kde_htmldir
 kde_icondir="%{_pixmapsdir}"; export kde_icondir
 %configure \
@@ -42,6 +41,7 @@ kde_icondir="%{_pixmapsdir}"; export kde_icondir
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_applnkdir}/Utilities
+
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT \
 	sysdir=%{_applnkdir}/Utilities \
@@ -60,6 +60,6 @@ rm -rf $RPM_BUILD_ROOT
 %doc README ChangeLog TODO AUTHORS
 %attr(755,root,root) %{_bindir}/%{name}
 %{_applnkdir}/Utilities/pcmm.desktop
+%dir %{_datadir}/apps/pcmm
 %{_datadir}/apps/pcmm/pcmmui.rc
-#%{_datadir}/doc/HTML/en/pcmm/*
 %{_pixmapsdir}/*
