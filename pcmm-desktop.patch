@@ -1,0 +1,19 @@
+--- pcmm-1.0/pcmm/pcmm.desktop~	Mon Mar 31 01:30:54 2003
++++ pcmm-1.0/pcmm/pcmm.desktop	Mon Mar 31 01:31:50 2003
+@@ -1,12 +1,12 @@
+ # KDE Config File  
+ [Desktop Entry]
++Name=Portos Commander
++Comment=Portos Commander file manager
++Comment[pl]=Zarządca plików Portos Commander
+ Type=Application
+ Exec=pcmm -caption "%c" %i %m  
+ Icon=pcmm.png
+ MiniIcon=pcmm.png
+ DocPath=pcmm/index.html
+-Comment=
+-Comment[de]=
+ Terminal=0
+-Name=Pcmm
+-Name[de]=Pcmm
++# vi: encoding=utf-8
