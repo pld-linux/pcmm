@@ -1,8 +1,8 @@
-Summary:	Portos Commander is a QT file manager for Linux
-Summary(pl):	Portos Commander jest opartym na QT zarz±dc± plików pod Linuksa
+Summary:	Portos Commander - a QT file manager for Linux
+Summary(pl):	Portos Commander - oparty na QT zarz±dca plików pod Linuksa
 Name:		pcmm
 Version:	1.0
-Release:	2
+Release:	3
 License:	GPL
 Group:		X11/Applications
 Source0:	http://dl.sourceforge.net/pcmm/%{name}-%{version}.tar.gz
@@ -14,9 +14,9 @@ Patch1:		%{name}-gcc3.patch
 Patch2:		%{name}-desktop_dir.patch
 Patch3:         %{name}-po_makefile.patch
 URL:		http://pcmm.sourceforge.net/
-BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRequires:	qt-devel
+BuildRequires:	kdelibs-devel >= 9:3.0
+BuildRequires:	rpmbuild(macros) >= 1.129
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -41,8 +41,9 @@ install %{SOURCE2} po/pl.po
 %patch3 -p1
 
 %build
-cp -f /usr/share/automake/config.sub admin/
+cp -f /usr/share/automake/config.sub admin
 kde_appsdir="%{_desktopdir}"; export kde_appsdir
+kde_htmldir="%{_kdedocdir}"; export kde_htmldir
 %configure \
 	--disable-debug
 
@@ -53,12 +54,11 @@ rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_pixmapsdir}
 
 %{__make} install \
-	DESTDIR=$RPM_BUILD_ROOT \
-	kde_appsdir=%{_desktopdir}
+	DESTDIR=$RPM_BUILD_ROOT
 
 install %{SOURCE1} $RPM_BUILD_ROOT%{_pixmapsdir}
 
-%find_lang %{name}
+%find_lang %{name} --with-kde
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -68,7 +68,6 @@ rm -rf $RPM_BUILD_ROOT
 %doc README ChangeLog TODO AUTHORS
 %attr(755,root,root) %{_bindir}/%{name}
 %{_desktopdir}/pcmm.desktop
-%dir %{_datadir}/apps/pcmm
-%{_datadir}/apps/pcmm/pcmmui.rc
+%{_datadir}/apps/pcmm
 %{_pixmapsdir}/*.png
 %{_iconsdir}/hicolor/*/apps/*
