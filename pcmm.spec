@@ -5,13 +5,12 @@ Version:	1.0
 Release:	1
 License:	GPL
 Group:		X11/Applications
-Source0:	http://prdownloads.sourceforge.net/pcmm/%{name}-%{version}.tar.gz
+Source0:	http://dl.sourceforge.net/pcmm/%{name}-%{version}.tar.gz
 URL:		http://pcmm.sourceforge.net/
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	qt-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
-
 
 %description
 Portos Commander (Pcmm) is a linux file manager for KDE 3.x. It is
