@@ -38,7 +38,6 @@ wyszukiwanie plików, wbudowan± przegl±darkê, ftp.
 
 %build
 kde_appsdir="%{_desktopdir}"; export kde_appsdir
-kde_icondir="%{_iconsdir}"; export kde_icondir
 %configure \
 	--disable-debug
 
@@ -50,8 +49,7 @@ install -d $RPM_BUILD_ROOT%{_pixmapsdir}
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT \
-	kde_appsdir=%{_desktopdir} \
-	kde_icondir=%{_iconsdir}
+	kde_appsdir=%{_desktopdir}
 
 install %{SOURCE1} $RPM_BUILD_ROOT%{_pixmapsdir}
 
@@ -68,4 +66,4 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{_datadir}/apps/pcmm
 %{_datadir}/apps/pcmm/pcmmui.rc
 %{_pixmapsdir}/*.png
-%{_iconsdir}/*color/*/*
+%{_iconsdir}/hicolor/*/apps/*
