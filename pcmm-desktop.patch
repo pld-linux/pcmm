@@ -1,5 +1,6 @@
---- pcmm-1.0/pcmm/pcmm.desktop~	Mon Mar 31 01:30:54 2003
-+++ pcmm-1.0/pcmm/pcmm.desktop	Mon Mar 31 01:31:50 2003
+diff -Nur old/pcmm/pcmm.desktop new/pcmm/pcmm.desktop
+--- old/pcmm/pcmm.desktop	2002-10-17 20:46:19.000000000 +0000
++++ new/pcmm/pcmm.desktop	2004-02-12 11:17:05.000000000 +0000
 @@ -1,12 +1,12 @@
  # KDE Config File  
  [Desktop Entry]
@@ -10,10 +11,11 @@
  Exec=pcmm -caption "%c" %i %m  
  Icon=pcmm.png
  MiniIcon=pcmm.png
- DocPath=pcmm/index.html
+-DocPath=pcmm/index.html
 -Comment=
 -Comment[de]=
  Terminal=0
 -Name=Pcmm
 -Name[de]=Pcmm
++Categories=Utility;
 +# vi: encoding=utf-8
