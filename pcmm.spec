@@ -1,5 +1,5 @@
 Summary:	Portos Commander - a Qt file manager for Linux
-Summary(pl.UTF-8):   Portos Commander - oparty na Qt zarządca plików pod Linuksa
+Summary(pl.UTF-8):	Portos Commander - oparty na Qt zarządca plików pod Linuksa
 Name:		pcmm
 Version:	1.0
 Release:	4
